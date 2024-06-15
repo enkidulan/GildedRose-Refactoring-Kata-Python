@@ -1,16 +1,3 @@
-# -*- coding: utf-8 -*-
-
-# rules = [
-# # - Once the sell by date has passed, `Quality` degrades twice as fast
-# # - The `Quality` of an item is never negative
-# # - __"Aged Brie"__ actually increases in `Quality` the older it gets
-# # - The `Quality` of an item is never more than `50`
-# # - __"Sulfuras"__, being a legendary item, never has to be sold or decreases in `Quality`
-# # - __"Backstage passes"__, like aged brie, increases in `Quality` as its `SellIn` value approaches;
-# # 	- `Quality` increases by `2` when there are `10` days or less and by `3` when there are `5` days or less but
-# # 	- `Quality` drops to `0` after the concert
-# ]
-
 from dataclasses import dataclass
 
 
@@ -47,6 +34,11 @@ class ItemRule:
         self.change_quality(degree)
 
 
+class ConjuredItemRule(ItemRule):
+    def get_degree(self):
+        return super().get_degree() * 2
+
+
 class IncreasingQualityItemRule(ItemRule):
     def get_degree(self):
         return -super().get_degree()
@@ -72,6 +64,7 @@ rules_mapping = {
     "Aged Brie": IncreasingQualityItemRule,
     "Sulfuras, Hand of Ragnaros": LegendaryItemRule,
     "Backstage passes to a TAFKAL80ETC concert": BackstagePassItemRule,
+    "Conjured Mana Cake": ConjuredItemRule,
 }
 
 
