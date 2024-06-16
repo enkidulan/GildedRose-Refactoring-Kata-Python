@@ -1,5 +1,8 @@
 # Gilded Rose starting position in Python
 
+Original repo is https://github.com/emilybache/GildedRose-Refactoring-Kata,
+this repo contains only my python solution
+
 For exercise instructions see [top level README](../README.md)
 
 Suggestion: create a python virtual environment for this project. See the [documentation](https://docs.python.org/3/library/venv.html)
